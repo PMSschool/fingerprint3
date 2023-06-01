@@ -60,6 +60,7 @@
     width: 100%;
     background-color: #80808078;
     font-family: monospace;
+    z-index: 9999999999999;
 }
 .header h1{
     margin: 0;
@@ -190,7 +191,7 @@
 .header .links nav ul li.woman::before{
   content: "";
   position: absolute;
-  border-color: var(--first-color) transparent transparent transparent;
+  border-color: #000 transparent transparent transparent;
   border-style: solid;
   border-width: 6px;
   top: 8px;
@@ -207,7 +208,6 @@
   padding: 5px;
   position: absolute;
   display: flex;
-  box-shadow: 0 0 6px -1px;
   font-size:15px;
 }
 .header .links nav ul li a:hover{
@@ -447,6 +447,313 @@
     display:grid;
     grid-template-areas: "card";
   }
-}
+}  
 
 /* end sections */
+
+/* start message */
+.message .head-section{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top:40px;
+}
+.message .head-section h1{
+  color: var(--first-color);
+  border: 1px solid var(--secondary);
+  padding: 3px 25px;
+  transition: 0.5s;
+}
+.message .head-section h1:hover{
+  background-color:var(--secondary) ;
+  color: white;
+}
+.message .head-section h1:hover ~ p{
+  color: var(--first-color);
+  border: 1px solid var(--secondary);
+  padding: 3px 25px;
+}
+.message .head-section p{
+  font-size: 14px;
+  color: #939393;
+  transition: 0.5s;
+}
+.message .container{
+  position: relative;
+  overflow:hidden;
+  width: 100%;
+  height: 50vh;
+  background-color:#000;
+}
+
+.message .container .tabs input{
+  visibility: hidden;
+  display:none;
+}
+.message .container .buttons{
+  position:absolute;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index: 1000000000000;
+}
+.message .container .buttons label{
+  width:20px;
+  height:20px;
+  background-color:#fff;
+  opacity:0.5;
+  border-radius:20px;
+  cursor:pointer;
+  transition: 0.5s;
+}
+.message .tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.message .tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.message .tabs input:nth-child(3):checked ~ .buttons label:nth-child(3){
+  opacity:1;
+  width:50px;
+}
+.messages{
+  position: relative;
+  width:300vw;
+  display: flex;  
+  transition:0.5s;
+}
+.messages .text{
+  position:relative;
+  width: 100vw;
+  height:50vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  user-select: none;
+  padding:40px;
+}
+.messages .text:nth-child(1){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.messages .text:nth-child(2){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.messages .text:nth-child(3){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.tabs input:nth-child(1):checked ~ .messages{
+  left: -4vw;
+}
+.tabs input:nth-child(2):checked ~ .messages{
+  left:-104vw
+}
+.tabs input:nth-child(3):checked ~ .messages{
+  left:-204vw;
+}
+
+.contenttx {
+    background-color: #c9c9c9;
+    padding: 30px;
+    border-radius: 22px;
+    height: 250px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+@media (min-width:990px){
+  .contenttx{
+    height:180px;
+    width:50%;
+  }
+}
+/* end message */
+
+/* start services */
+.services .container{
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+}
+@media (max-width:767px){
+  .services .container{
+    flex-direction: column;
+  }
+}
+.services .container .card{
+  width: 300px;
+  text-align: center;
+  line-height: 35px;
+  height: 300px;
+  padding: 30px;
+  transition:0.5s;
+}
+.services .container .card:hover{
+  width: 310px;
+  height: 310px;
+  border-color: #0c0a2a var(--first-color) #0c0a2a var(--first-color);
+  box-shadow: 0 0 4px;
+  animation-duration: 0.5s;
+  animation-name: rec;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+}
+@keyframes rec {
+  from{
+    border-color: #0c0a2a var(--first-color) #0c0a2a var(--first-color);
+  }
+  to{
+    border-color: var(--first-color) #0c0a2a var(--first-color) #0c0a2a;
+}
+}
+.services .container .card i{
+  color: var(--first-color);
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+/* end services */
+
+/* start new-product */
+.new-product .card{
+  border: 1px solid #efefef;
+  position: relative;
+  height: 300px;
+  display: grid;
+  background-color: transparent;
+}
+.new-product .card img{
+  width: 160px;
+  display: flex;
+  margin: auto;
+}
+.new-product .card .text{
+  position: relative;
+  left: 20px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  width:fit-content;
+}
+.new-product .card .text h2{
+  font-size:16px;
+}
+.new-product .card .text p{
+  font-size:12px;
+}
+.new-product .card .text a{
+  font-size: 14px;
+  background-color: var(--first-color);
+  color: white;
+  padding: 4px 13px;
+  border-radius: 16px;
+}
+@media (max-width:767px){
+  .new-product .card img{
+    width: 120px;
+  }
+  .new-product .card .text{
+    gap: 10px;
+    left: 7px;
+  }
+}
+.new-product .head-section{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top:40px;
+}
+.new-product .head-section h1{
+  color: var(--first-color);
+  border: 1px solid var(--secondary);
+  padding: 3px 25px;
+  transition: 0.5s;
+}
+.new-product .head-section h1:hover{
+  background-color:var(--secondary) ;
+  color: white;
+}
+.new-product .head-section h1:hover ~ p{
+  color: var(--first-color);
+  border: 1px solid var(--secondary);
+  padding: 3px 25px;
+}
+.new-product .head-section p{
+  font-size: 14px;
+  color: #939393;
+  transition: 0.5s;
+}
+.new-product .container{
+  position: relative;
+  overflow:hidden;
+  width: 100%;
+  height: 50vh;
+  background-color:#000;
+}
+
+.new-product .container .tabs input{
+  visibility: hidden;
+  display:none;
+}
+.new-product .container .buttons{
+  position:absolute;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index: 1000000000000;
+}
+.new-product .container .buttons label{
+  width:20px;
+  height:20px;
+  background-color:#fff;
+  opacity:0.5;
+  border-radius:20px;
+  cursor:pointer;
+  transition: 0.5s;
+}
+.new-product .tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.new-product .tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.new-product .tabs input:nth-child(3):checked ~ .buttons label:nth-child(3){
+  opacity:1;
+  width:50px;
+}
+.all-card{
+  position: relative;
+  width:300vw;
+  display: flex;  
+  transition:0.5s;
+}
+.all-card .ca-fi{
+  position:relative;
+  width: 100vw;
+  height:50vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  user-select: none;
+  padding:40px;
+}
+.all-card .ca-fi:nth-child(1){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.all-card .ca-fi:nth-child(2){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.all-card .ca-fi:nth-child(3){
+    background: linear-gradient(90deg, #0c0a2a, #000000);
+}
+.tabs input:nth-child(1):checked ~ .all-card{
+  left: -4vw;
+}
+.tabs input:nth-child(2):checked ~ .all-card{
+  left:-104vw
+}
+.tabs input:nth-child(3):checked ~ .all-card{
+  left:-204vw;
+}
+
+/* end new-product */
